@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="rainbow-text font-semibold">
-          Modified by Mapleawaa
+          Modified by CyreneNight
         </a>
       </div>
     </footer>
