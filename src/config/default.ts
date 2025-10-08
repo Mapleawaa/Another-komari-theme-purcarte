@@ -35,6 +35,16 @@ export interface ConfigOptions {
   isShowValueUnderProgressBar: boolean; // 是否在流量进度条下方显示数值
   selectTrafficProgressStyle: "circular" | "linear"; // 流量进度条样式
   enableListItemProgressBar: boolean; // 是否启用列表视图进度条
+  fontFamily: string; // 字体族
+  fontUrl: string; // 字体URL (本地或CDN)
+  backgroundWide: string; // 宽屏壁纸
+  backgroundVertical: string; // 竖屏壁纸
+  backgroundTablet: string; // 平板设备壁纸
+  backgroundMobile: string; // 移动设备壁纸
+  globalThemeColor: string; // 全局主题颜色
+  siteTitle: string; // 站点名称
+  enableSiteIcon: boolean; // 是否显示站点图标
+  siteIconUrl: string; // 站点图标URL
 }
 
 // 默认配置值
@@ -76,6 +86,16 @@ export const DEFAULT_CONFIG: ConfigOptions = {
   isShowValueUnderProgressBar: false,
   selectTrafficProgressStyle: "linear",
   enableListItemProgressBar: true,
+  fontFamily: "Inter, system-ui, sans-serif", // 默认字体
+  fontUrl: "", // 默认为空，表示不加载自定义字体
+  backgroundWide: "/assets/wide.webp", // 默认宽屏壁纸
+  backgroundVertical: "/assets/vertical.webp", // 默认竖屏壁纸
+  backgroundTablet: "", // 平板设备壁纸默认为空
+  backgroundMobile: "", // 移动设备壁纸默认为空
+  globalThemeColor: "#7e22ce", // 默认紫罗兰色，与 selectThemeColor 一致
+  siteTitle: "Komari", // 站点名称
+  enableSiteIcon: false, // 默认不显示站点图标
+  siteIconUrl: "/assets/pwa-icon.png", // 站点图标URL
 };
 
 // 定义颜色类型

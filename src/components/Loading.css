@@ -1,20 +1,29 @@
-.loader {
-  position: relative;
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-}
-.loader:before {
-  content: "";
-  display: block;
-  padding-top: 100%;
+/* Apple-style loading animation with Consistency, Harmony, and Hierarchy */
+
+.loading-container {
+  background: linear-gradient(135deg, var(--background) 0%, var(--muted) 100%);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.showbox {
+  position: relative;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scale-50 { transform: scale(0.5); }
+.scale-60 { transform: scale(0.6); }
+.scale-70 { transform: scale(0.7); }
+.scale-80 { transform: scale(0.8); }
+.scale-90 { transform: scale(0.9); }
+
 .circular {
-  -webkit-animation: rotate 2s linear infinite;
-  animation: rotate 2s linear infinite;
+  animation: rotate 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   height: 100%;
-  -webkit-transform-origin: center center;
   transform-origin: center center;
   width: 100%;
   position: absolute;
@@ -28,39 +37,22 @@
 .path {
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
-  -webkit-animation: dash 1.5s ease-in-out infinite;
-  animation: dash 1.5s ease-in-out infinite;
+  animation: dash 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   stroke-linecap: round;
-  stroke: #3b82f6;
+  stroke: var(--primary);
+  transition: stroke 0.3s ease;
 }
 
-@-webkit-keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
+/* Apple-style animation curves */
 @keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-@-webkit-keyframes dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35px;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124px;
-  }
-}
+
 @keyframes dash {
   0% {
     stroke-dasharray: 1, 200;
@@ -74,4 +66,47 @@
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -124px;
   }
+}
+
+/* Smooth loading text animation */
+.loading-text {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apple-style pulse animation for secondary text */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth transition on container */
+.loading-container {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.loading-container[style*="opacity: 1"] {
+  opacity: 1;
+  transform: scale(1);
 }

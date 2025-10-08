@@ -1,10 +1,10 @@
 {
-    "name": "Komari Theme PurCart",
-    "short": "PurCarte",
-    "description": "A frosted glass theme for Komari",
+    "name": "Komari Theme Next-PurCart",
+    "short": "PurCarte & Mapleawaa",
+    "description": "Next frosted glass theme for Komari",
     "version": "tags:VERSION",
-    "author": "Montia & Gemini",
-    "url": "https://github.com/Montia37/Komari-theme-purcarte",
+    "author": "Mapleawaa & Montia & Gemini",
+    "url": "https://github.com/Mapleawaa/Another-komari-theme-purcarte",
     "preview": "preview.png",
     "configuration": {
         "type": "managed",
@@ -25,7 +25,7 @@
                 "name": "桌面端背景图片链接",
                 "type": "string",
                 "default": "/assets/Moonlit-Scenery.webp",
-                "help": "目前支持单张背景图片或图片api，使用“|”分隔亮色模式和暗色模式，填写单个则同时用于亮暗模式，请自行测试（eg: https://test.com/1.png）"
+                "help": "目前支持单张背景图片或图片api，使用“|”分隔亮色模式和暗色模式，填写单个则同时用于亮暗模式，请自行测试（eg: https://w.wallhaven.cc/full/po/wallhaven-po2vg3.jpg）"
             },
             {
                 "key": "backgroundImageMobile",
@@ -285,6 +285,100 @@
                 "type": "number",
                 "default": 0,
                 "help": "设置延迟图表的最大渲染点数来优化图表渲染，0 表示不限制，推荐值为 2000 或更小的值"
+            },
+            {
+                "name": "字体设置",
+                "type": "title"
+            },
+            {
+                "key": "fontFamily",
+                "name": "字体族",
+                "type": "string",
+                "default": "Inter, system-ui, sans-serif",
+                "help": "指定页面使用的字体族，多个字体用逗号分隔（eg: Arial, sans-serif）。仅在提供了字体URL或使用系统字体时生效"
+            },
+            {
+                "key": "fontFamily",
+                "name": "字体族",
+                "type": "select",
+                "options": "LXGW Wenkai SC,MapleMonoSC,全圆体,Inter, system-ui, sans-serif",
+                "default": "Inter, system-ui, sans-serif",
+                "help": "指定页面使用的字体族。选择预设字体将会自动加载对应的开源字体，如需更多字体信息请访问：https://github.com/KonghaYao/chinese-free-web-font-storage"
+            },
+            {
+                "key": "fontUrl",
+                "name": "字体链接",
+                "type": "string",
+                "default": "",
+                "help": "字体文件链接，支持本地ttf/woff/woff2文件或CDN字体链接（eg: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap 或 /assets/custom-font.ttf）（注意：当选择预设字体时此项可留空）"
+            },
+            {
+                "name": "壁纸设置",
+                "type": "title"
+            },
+            {
+                "key": "backgroundWide",
+                "name": "宽屏壁纸",
+                "type": "string",
+                "default": "/assets/wide.webp",
+                "help": "宽屏设备（如桌面电脑）使用的壁纸文件链接，支持本地文件或CDN链接（eg: /assets/wide-bg.jpg 或 https://example.com/bg.jpg）"
+            },
+            {
+                "key": "backgroundVertical",
+                "name": "竖屏壁纸",
+                "type": "string",
+                "default": "/assets/vertical.webp",
+                "help": "竖屏设备（如手机）使用的壁纸文件链接，支持本地文件或CDN链接（eg: /assets/vertical-bg.jpg 或 https://example.com/bg.jpg）"
+            },
+            {
+                "key": "backgroundTablet",
+                "name": "平板壁纸",
+                "type": "string",
+                "default": "",
+                "help": "平板设备使用的壁纸文件链接，支持本地文件或CDN链接（留空则使用对应方向的壁纸）"
+            },
+            {
+                "key": "backgroundMobile",
+                "name": "移动设备壁纸",
+                "type": "string",
+                "default": "",
+                "help": "移动设备使用的壁纸文件链接，支持本地文件或CDN链接（留空则使用竖屏壁纸）"
+            },
+            {
+                "name": "主题颜色设置",
+                "type": "title"
+            },
+            {
+                "key": "globalThemeColor",
+                "name": "全局主题颜色",
+                "type": "string",
+                "default": "#7e22ce",
+                "help": "设置全局主题颜色，影响顶栏、按钮、标签等UI元素的颜色。支持十六进制颜色值（eg: #7e22ce 或 violet-600）"
+            },
+            {
+                "name": "站点图标设置",
+                "type": "title"
+            },
+            {
+                "key": "siteTitle",
+                "name": "站点名称",
+                "type": "string",
+                "default": "Komari",
+                "help": "设置站点名称，显示在标题栏中"
+            },
+            {
+                "key": "enableSiteIcon",
+                "name": "显示站点图标",
+                "type": "switch",
+                "default": false,
+                "help": "启用后将在标题栏中显示站点图标"
+            },
+            {
+                "key": "siteIconUrl",
+                "name": "站点图标链接",
+                "type": "string",
+                "default": "/assets/pwa-icon.png",
+                "help": "站点图标文件链接，支持本地文件或CDN链接（仅在1:1比例图片下效果最佳，将自动应用圆形遮罩和白色边框）"
             }
         ]
     }

@@ -81,6 +81,11 @@
   --main-width: 85vw;
   --purcarte-blur: 10px;
   --body-background-url: url("");
+  --font-family: Inter, system-ui, sans-serif;
+  --global-theme-color: #7e22ce;
+  --global-theme-color-rgb: 126, 34, 206;
+  --global-theme-color-light: #a855f7;
+  --global-theme-color-dark: #6d21d0;
 }
 
 .dark {
@@ -124,6 +129,7 @@
   }
   body {
     @apply bg-background;
+    font-family: var(--font-family);
   }
   button {
     cursor: pointer;
@@ -170,6 +176,36 @@
   .theme-text-muted {
     @apply text-(--theme-text-muted-color);
   }
+  
+  .footer-glass {
+    @apply bg-(--card-light)/80 dark:bg-(--card-dark)/80 backdrop-blur-xl border-t border-(--accent-12)/30 shadow-lg shadow-(--background)/20;
+  }
+  
+  .footer-content {
+    width: 100%;
+    max-width: var(--main-width, 85vw);
+  }
+  
+  .rainbow-text {
+    background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff, #ff0000);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow-text-animation 6s ease infinite;
+  }
+  
+  @keyframes rainbow-text-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 /* 背景图片伪元素 */
@@ -208,6 +244,12 @@ body::before {
   animation: fadeOut 0.5s ease-in forwards;
 }
 
+.apple-fade-out {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -228,4 +270,33 @@ body::before {
     opacity: 0;
     transform: scale(0.95);
   }
+}
+
+/* Global theme color utilities */
+.theme-color-bg {
+  background-color: var(--global-theme-color);
+}
+
+.theme-color-text {
+  color: var(--global-theme-color);
+}
+
+.theme-color-border {
+  border-color: var(--global-theme-color);
+}
+
+.theme-color-hover-bg:hover {
+  background-color: var(--global-theme-color);
+}
+
+.theme-color-hover-text:hover {
+  color: var(--global-theme-color);
+}
+
+.theme-color-light-bg {
+  background-color: var(--global-theme-color-light);
+}
+
+.theme-color-dark-text {
+  color: var(--global-theme-color-dark);
 }

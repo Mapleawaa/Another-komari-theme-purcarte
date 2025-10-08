@@ -2,7 +2,7 @@
 
 <img width="300" src="./preview.png" alt="PurCarte Theme Preview">
 
-## ✨ PurCarte ✨
+## ✨ Next-PurCarte ✨
 
 一款为 [Komari](https://github.com/komari-monitor/komari) 设计的磨砂玻璃风格主题。
 
@@ -11,13 +11,16 @@
 ---
 
 > [!NOTE]
-> 本主题在 Gemini 的辅助下完成，融合了官方主题的部分设计与个人审美偏好，旨在提供一种简洁、美观的磨砂玻璃质感界面
+> 本主题在 Qwen & Claude 的辅助下完成，融合了官方主题的部分设计与个人审美偏好，旨在提供一种简洁、美观的磨砂玻璃质感界面
+
+> [!WARRING]
+> 本主题基于 [Montia37](https://github.com/Montia37/komari-theme-purcarte) 的原作品二次修改而来。
 
 ## 🚀 快速开始
 
 ### 安装与启用
 
-1.  前往 [Releases](https://github.com/Montia37/komari-theme-purcarte/releases) 页面下载最新的 `komari-theme-purcarte.zip` 文件。
+1.  前往 [Releases](https://github.com/Mapleawaa/Another-komari-theme-purcarte) 页面下载最新的 `komari-theme-purcarte.zip` 文件。
 2.  进入 Komari 后台，上传 `zip` 压缩包并启用本主题。
 
 ### 配置背景图片
@@ -253,8 +256,8 @@
 1.  **克隆仓库**
 
     ```bash
-    git clone https://github.com/Montia37/komari-theme-purcarte.git
-    cd komari-theme-purcarte
+    git clone https://github.com/Mapleawaa/Another-komari-theme-purcarte.git
+    cd Antoher-komari-theme-purcarte
     ```
 
 2.  **安装依赖**

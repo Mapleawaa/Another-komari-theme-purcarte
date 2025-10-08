@@ -68,3 +68,8 @@ coverage/
 *.sln
 *.sw?
 vite.config.dev.ts
+
+# Coder Cli files
+QWEN.md
+CLAUDE.md
+GEMINI.md

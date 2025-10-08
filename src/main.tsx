@@ -19,6 +19,7 @@ import { NodeDataProvider } from "@/contexts/NodeDataContext";
 import { LiveDataProvider } from "@/contexts/LiveDataContext";
 import Footer from "@/components/sections/Footer";
 import Loading from "./components/loading";
+import { loadFont, initBackgroundHandling, initThemeColorHandling } from "@/utils";
 
 import type { StatsBarProps } from "./components/sections/StatsBar";
 const HomePage = lazy(() => import("@/pages/Home"));
@@ -32,7 +33,18 @@ const homeScrollState = {
 
 // 内部应用组件，在 ConfigProvider 内部使用配置
 export const AppContent = () => {
-  const { siteStatus } = useAppConfig();
+  const { 
+    siteStatus, 
+    fontFamily, 
+    fontUrl,
+    backgroundWide,
+    backgroundVertical,
+    backgroundTablet,
+    backgroundMobile,
+    backgroundImage,
+    backgroundImageMobile,
+    globalThemeColor
+  } = useAppConfig();
   const { appearance, color } = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
   const [statsBarProps, setStatsBarProps] = useState<StatsBarProps | null>(
@@ -47,6 +59,36 @@ export const AppContent = () => {
     if (!viewport) return;
     homeScrollState.position = viewport.scrollTop;
   };
+
+  // Load fonts when the component mounts
+  useEffect(() => {
+    if (fontFamily) {
+      // Load the font using the updated loadFont function which handles preset fonts
+      loadFont({ fontFamily, fontUrl });
+    }
+  }, [fontFamily, fontUrl]);
+
+  // Initialize responsive background handling
+  useEffect(() => {
+    const cleanup = initBackgroundHandling({
+      backgroundWide,
+      backgroundVertical,
+      backgroundTablet,
+      backgroundMobile,
+      backgroundImage,
+      backgroundImageMobile
+    });
+
+    // Cleanup function to remove event listeners when component unmounts
+    return cleanup;
+  }, [backgroundWide, backgroundVertical, backgroundTablet, backgroundMobile, backgroundImage, backgroundImageMobile]);
+
+  // Initialize global theme color
+  useEffect(() => {
+    if (globalThemeColor) {
+      initThemeColorHandling(globalThemeColor);
+    }
+  }, [globalThemeColor]);
 
   useEffect(() => {
     if (location.pathname !== "/") return;

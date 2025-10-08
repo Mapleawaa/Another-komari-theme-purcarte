@@ -47,24 +47,33 @@ export const Header = (props: HeaderProps) => {
     enableSearchButton,
     enableAdminButton,
     isShowStatsInHeader,
+    siteTitle,
+    enableSiteIcon,
+    siteIconUrl,
   } = useAppConfig();
   const isMobile = useIsMobile();
 
   useEffect(() => {
     if (titleText) {
       document.title = titleText;
+    } else {
+      document.title = siteTitle;
     }
-  }, [titleText]);
+  }, [titleText, siteTitle]);
 
   return (
     <header className="purcarte-blur border-b border-(--accent-a4) shadow-sm shadow-(color:--accent-a4) sticky top-0 flex items-center justify-center z-10">
       <div className="w-(--main-width) max-w-screen-2xl py-2 flex items-center justify-between">
         <div className="flex items-center theme-text-shadow text-accent-foreground">
           <a href="/" className="flex items-center gap-2 text-2xl font-bold">
-            {enableLogo && logoUrl && (
-              <img src={logoUrl} alt="logo" className="h-8" />
+            {enableSiteIcon && siteIconUrl && (
+              <img 
+                src={siteIconUrl} 
+                alt="site icon" 
+                className="h-8 w-8 rounded-full border-2 border-white object-cover"
+              />
             )}
-            {enableTitle && <span>{titleText}</span>}
+            {enableTitle && <span>{titleText || siteTitle}</span>}
           </a>
         </div>
         {!isInstancePage &&
