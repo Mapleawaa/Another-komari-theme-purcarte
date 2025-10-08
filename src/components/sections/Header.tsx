@@ -42,8 +42,6 @@ export const Header = (props: HeaderProps) => {
   const {
     enableTitle,
     titleText,
-    enableLogo,
-    logoUrl,
     enableSearchButton,
     enableAdminButton,
     isShowStatsInHeader,
